@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import Logo from "./Logo";
 import CartIcon from "./CartIcon";
 import { useCart } from "../pages/Product/CartContext";
 
@@ -8,15 +9,13 @@ const Header = () => {
   return (
     <header className=" bg-orange-400">
       <div className="max-w-screen-xl mx-auto flex justify-between px-6 py-3">
-        <h1
-          className="hover: cursor-pointer text-4xl"
-          onClick={() => navigate(`/`)}
-        >
-          LOGO
-        </h1>
+        <button className="flex gap-3 text-4xl" onClick={() => navigate(`/`)}>
+          <Logo></Logo>
+          Shrimpee
+        </button>
         <button
           className="flex items-center hover: cursor-pointer"
-          onClick={() => navigate(`/cart`)} 
+          onClick={() => navigate(`/cart`)}
         >
           <div className="relative">
             <CartIcon></CartIcon>

@@ -36,8 +36,8 @@ const Cart = () => {
               </div>
             </div>
           ))}
-          <div className="flex justify-end">
-            <span className="text-3xl text-orange-600 font-bold">
+          <div className="flex justify-end gap-5 py-3">
+            <span className="text-3xl text-orange-600 font-bold my-auto">
               Total: ${getPriceTotal().toFixed(2)}
             </span>
             <Button

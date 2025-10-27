@@ -50,38 +50,46 @@ const ProductDetail = () => {
   } else {
     return (
       <div className="min-h-screen bg-[#F5F5F5]">
-        <div className="max-w-7xl bg-[#F5F5F5] mx-auto p-6 flex">
-          <img src={finalProduct?.images[0]} alt="" />
-          <div>
-            <h2>{finalProduct?.title}</h2>
-            <h1 className="">${finalProduct?.price}</h1>
-            <div>
-              <QuantityCounter
-                initialQuantity={1}
-                min={1}
-                max={99}
-                onQuantityChange={handleQuantityUpdate}
-              />
+        <div className="max-w-7xl bg-[#F5F5F5] mx-auto p-6 grid grid-cols-7">
+          <div className="col-span-2 col-start-2">
+            <img className="" src={finalProduct?.images[0]} alt="" />
+          </div>
+          <div className="col-span-4 flex flex-col justify-between h-full p-8 mx-auto">
+            <div className="">
+              <h2 className="text-2xl mb-4">{finalProduct?.title}</h2>
+              <h1 className="text-4xl font-bold text-red-500 mb-10">
+                ${finalProduct?.price}
+              </h1>
             </div>
-            <div className="flex">
-              <Button
-                text="Buy Now"
-                txtColor="text-white"
-                bgColor="bg-red-500 hover:bg-red-600"
-                onClick={() => {
-                  addToCart(finalProduct, selectedQuantity);
-                  navigate(`/cart`);
-                }}
-              ></Button>
-              <Button
-                text="Add to cart"
-                txtColor="text-red-500"
-                bgColor="bg-red-200 hover:bg-red-100"
-                onClick={() => {
-                  addToCart(finalProduct, selectedQuantity);
-                  alert("Product added to cart!");
-                }}
-              ></Button>
+            <div className="">
+              <div className="mb-10">
+                <QuantityCounter
+                  initialQuantity={1}
+                  min={1}
+                  max={99}
+                  onQuantityChange={handleQuantityUpdate}
+                />
+              </div>
+              <div className="flex gap-3">
+                <Button
+                  text="Buy Now"
+                  txtColor="text-white"
+                  bgColor="bg-red-500 hover:bg-red-600"
+                  onClick={() => {
+                    addToCart(finalProduct, selectedQuantity);
+                    navigate(`/cart`);
+                  }}
+                ></Button>
+                <Button
+                  text="Add to cart"
+                  txtColor="text-red-500"
+                  bgColor="bg-red-200 hover:bg-red-100"
+                  onClick={() => {
+                    addToCart(finalProduct, selectedQuantity);
+                    alert("Product added to cart!");
+                  }}
+                ></Button>
+              </div>
             </div>
           </div>
         </div>
