@@ -91,8 +91,12 @@ const ProductContainer = () => {
       value={{ products, isLoading, hasMore, fetchProducts }}
     >
       <CartProvider>
-        <Header></Header>
-        <Outlet></Outlet>
+        <div className="min-h-screen flex flex-col bg-[#F5F5F5]">
+          <Header />
+          <div className="flex-grow pb-10">
+            <Outlet />
+          </div>
+        </div>
       </CartProvider>
     </ProductContext.Provider>
   );

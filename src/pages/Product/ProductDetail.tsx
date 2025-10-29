@@ -49,7 +49,6 @@ const ProductDetail = () => {
     );
   } else {
     return (
-      <div className="min-h-screen bg-[#F5F5F5]">
         <div className="max-w-7xl bg-[#F5F5F5] mx-auto p-6 grid grid-cols-7">
           <div className="col-span-2 col-start-2">
             <img className="" src={finalProduct?.images[0]} alt="" />
@@ -93,7 +92,6 @@ const ProductDetail = () => {
             </div>
           </div>
         </div>
-      </div>
     );
   }
 };

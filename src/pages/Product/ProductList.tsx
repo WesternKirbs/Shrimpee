@@ -19,7 +19,7 @@ const ProductList = () => {
         }
       },
       {
-        rootMargin: "0px 0px 500px 0px", 
+        rootMargin: "0px 0px 500px 0px",
       }
     );
 
@@ -36,37 +36,35 @@ const ProductList = () => {
   }, [isLoading, hasMore]);
 
   return (
-    <div className="min-h-screen bg-[#F5F5F5]">
-      <div className="max-w-7xl bg-[#F5F5F5] mx-auto p-6">
-        <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {products.map((product) => (
-            <li
-              key={product.id}
-              onClick={() => navigate(`/product/${product.id}`)}
-              className="bg-white rounded-xl shadow-lg p-2 border border-transparent flex flex-col h-full  hover:shadow- transition duration-300 transform hover:border-[#FA4F30] hover:cursor-pointer hover:-translate-y-1 "
-            >
-              <img
-                src={product.thumbnail}
-                className="w-full aspect-square"
-                alt=""
-                loading="lazy"
-              />
-              <div className="py-4 flex flex-col flex-grow">
-                <h3
-                  className="text-md font-semibold text-gray-800 line-clamp-2"
-                  title={product.title}
-                >
-                  {product.title}
-                </h3>
-              </div>
-              <p className="text-[#EE4D2D] text-lg">${product.price}</p>
-            </li>
-          ))}
-        </ul>
-        {isLoading && <p className="">Loading more...</p>}
-        {hasMore && !isLoading && <div ref={observerTarget} className="h-5" />}
-        {!hasMore && <p className="text-center p-3">--You've seen it all!--</p>}
-      </div>
+    <div className="max-w-7xl bg-[#F5F5F5] mx-auto p-6">
+      <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {products.map((product) => (
+          <li
+            key={product.id}
+            onClick={() => navigate(`/product/${product.id}`)}
+            className="bg-white rounded-xl shadow-lg p-2 border border-transparent flex flex-col h-full  hover:shadow- transition duration-300 transform hover:border-[#FA4F30] hover:cursor-pointer hover:-translate-y-1 "
+          >
+            <img
+              src={product.thumbnail}
+              className="w-full aspect-square"
+              alt=""
+              loading="lazy"
+            />
+            <div className="py-4 flex flex-col flex-grow">
+              <h3
+                className="text-md font-semibold text-gray-800 line-clamp-2"
+                title={product.title}
+              >
+                {product.title}
+              </h3>
+            </div>
+            <p className="text-[#EE4D2D] text-lg">${product.price}</p>
+          </li>
+        ))}
+      </ul>
+      {isLoading && <p className="">Loading more...</p>}
+      {hasMore && !isLoading && <div ref={observerTarget} className="h-5" />}
+      {!hasMore && <p className="text-center p-3">--You've seen it all!--</p>}
     </div>
   );
 };

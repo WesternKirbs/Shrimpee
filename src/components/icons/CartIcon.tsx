@@ -1,7 +1,7 @@
 const CartIcon = () => (
   <div className="relative inline-block">
     <svg
-      className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10"
+      className="w-10 h-10"
       viewBox="0 0 20 20"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
