@@ -2,7 +2,7 @@ import type { Product } from "./ProductContainer";
 import { useContext, createContext, useState, useEffect } from "react";
 import type { ReactNode } from "react";
 
-interface CartItem {
+export interface CartItem {
   id: number;
   title: string;
   price: number;
@@ -16,6 +16,7 @@ interface CartContextType {
   addToCart: (product: Product, quantity?: number) => void;
   updateQuantity: (productId: number, newQ: number) => void;
   deleteItem: (productId: number) => void;
+  clearCart: () => void;
 }
 
 interface CartProviderProps {
@@ -100,6 +101,8 @@ const CartProvider = ({ children }: CartProviderProps) => {
       return prevItems.filter((item) => item.id !== productId);
     });
   };
+
+  const clearCart = () => setCartItems([]);
   return (
     <CartContext.Provider
       value={{
@@ -108,6 +111,7 @@ const CartProvider = ({ children }: CartProviderProps) => {
         addToCart,
         updateQuantity,
         deleteItem,
+        clearCart,
       }}
     >
       {children}

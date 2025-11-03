@@ -3,6 +3,7 @@ import ProductDetail from "../pages/Product/ProductDetail.tsx";
 import ProductList from "../pages/Product/ProductList.tsx";
 import Cart from "../pages/Cart.tsx";
 import About from "../pages/About.tsx";
+import UserHist from "../pages/User.tsx";
 import { createBrowserRouter } from "react-router-dom";
 
 export const router = createBrowserRouter([
@@ -21,6 +22,10 @@ export const router = createBrowserRouter([
       {
         path: "/cart",
         element: <Cart />,
+      },
+      {
+        path: "/user",
+        element: <UserHist/>,
       },
     ],
   },

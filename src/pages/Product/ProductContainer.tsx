@@ -10,6 +10,7 @@ import axios from "axios";
 import { Outlet } from "react-router-dom";
 import Header from "../../components/Header";
 import CartProvider from "./CartContext";
+import OrderProvider from "./OrderContext";
 
 export interface Product {
   id: number;
@@ -90,14 +91,16 @@ const ProductContainer = () => {
     <ProductContext.Provider
       value={{ products, isLoading, hasMore, fetchProducts }}
     >
-      <CartProvider>
-        <div className="min-h-screen flex flex-col bg-[#F5F5F5]">
-          <Header />
-          <div className="flex-grow pb-10">
-            <Outlet />
+      <OrderProvider>
+        <CartProvider>
+          <div className="min-h-screen flex flex-col bg-[#F5F5F5]">
+            <Header />
+            <div className="flex-grow pb-10">
+              <Outlet />
+            </div>
           </div>
-        </div>
-      </CartProvider>
+        </CartProvider>
+      </OrderProvider>
     </ProductContext.Provider>
   );
 };

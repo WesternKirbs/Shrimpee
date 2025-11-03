@@ -7,6 +7,7 @@ import { useCart } from "../pages/Product/CartContext";
 const Header = () => {
   const navigate = useNavigate();
   const { cartItems } = useCart();
+
   return (
     <header className=" bg-orange-400">
       <div className="max-w-screen-xl mx-auto flex justify-between px-6 py-3">
@@ -15,7 +16,7 @@ const Header = () => {
           Shrimpee
         </button>
         <div className="flex gap-5">
-          <button className="">
+          <button className="" onClick={() => navigate(`/user`)}>
             <UserIcon></UserIcon>
           </button>
           <button

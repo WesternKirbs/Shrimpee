@@ -1,9 +1,11 @@
 import { useCart } from "./Product/CartContext";
 import QuantityCounter from "../components/QuantityCounter";
 import Button from "../components/Button";
+import { useCheckout } from "../hooks/useCheckout";
 const Cart = () => {
-  const { cartItems, getPriceTotal, updateQuantity, deleteItem } = useCart();
-
+  const { cartItems, getPriceTotal, updateQuantity, deleteItem, clearCart } =
+    useCart();
+  const checkout = useCheckout();
   if (cartItems) {
     return (
       <div className="min-h-screen bg-[#F5F5F5]">
@@ -23,7 +25,10 @@ const Cart = () => {
                   />
                 </div>
                 <span className="text-orange-600">
-                  ${(Math.round(item.price * item.quantity * 100) / 100).toFixed(2)}
+                  $
+                  {(Math.round(item.price * item.quantity * 100) / 100).toFixed(
+                    2
+                  )}
                 </span>
                 <button>
                   <span
@@ -44,6 +49,7 @@ const Cart = () => {
               text="buy"
               txtColor="text-white"
               bgColor="bg-red-500 hover:bg-red-600"
+              onClick={() => checkout()}
             ></Button>
           </div>
         </div>
